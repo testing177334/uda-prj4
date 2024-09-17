@@ -21,7 +21,11 @@ jobs:
   Lint:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Lint
+        run: |
           cd Frontend
           npm run lint
 
@@ -29,7 +33,11 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Test
+        run: |
           cd Frontend
           nvm use
           npm ci
@@ -40,7 +48,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: [ Lint, Test ]
     steps:
-      - run: |
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Frontdend
+        run: |
           cd Frontend
           npm ci
           docker build --build-arg=REACT_APP_MOVIE_API_URL=http://localhost:5000 --tag=mp-frontend:latest .
