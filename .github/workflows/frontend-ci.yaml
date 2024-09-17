@@ -30,10 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        cd Frontend
-        nvm use
-        npm ci
-        CI=true npm test
+          cd Frontend
+          nvm use
+          npm ci
+          CI=true npm test
 
 
   Build:
