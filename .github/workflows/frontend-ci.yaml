@@ -26,7 +26,10 @@ jobs:
 
       - name: Run Lint
         run: |
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
           cd Frontend
+          npm ci
           npm run lint
 
 
@@ -38,7 +41,10 @@ jobs:
 
       - name: Run Test
         run: |
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh
           cd Frontend
+          nvm install
           nvm use
           npm ci
           CI=true npm test
