@@ -32,10 +32,14 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
 
-      - name: Run Lint
+      - name: Install deps
         run: |
           cd Backend
           pipenv install --dev
+
+      - name: Run Lint
+        run: |
+          cd Backend
           pipenv run lint
 
 
@@ -53,10 +57,14 @@ jobs:
       - name: Install pipenv
         run: pip install pipenv
 
-      - name: Run Test
+      - name: Install deps
         run: |
           cd Backend
           pipenv install
+
+      - name: Run Test
+        run: |
+          cd Backend
           pipenv run test
 
 
